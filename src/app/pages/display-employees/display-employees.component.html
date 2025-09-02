@@ -12,22 +12,20 @@
                 <th>Designation</th>
                 <th>Employee Type</th>
                 <th>Salary</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{ "employee id" }}</td>
-                <td>{{ "Full name" }}</td>
-                <td>{{ "email" }}</td>
-                <td>{{ "phone" }}</td>
-                <td>{{ "gender" }}</td>
-                <td>{{ "date of joining" }}</td>
-                <td>{{ "department" }}</td>
-                <td>{{ "designation" }}</td>
-                <td>{{ "employee-type"}}</td>
-                <td>{{ "salary" }}</td>
-                <td>{{" actions" }}</td>
+            <tr *ngFor="let employee of allEmployees">
+                <td>{{ employee.employeeId }}</td>
+                <td>{{ employee.fullName }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.gender }}</td>
+                <td>{{ employee.dateOfJoining }}</td>
+                <td>{{ employee.departmentName }}</td>
+                <td>{{ employee.designationName }}</td>
+                <td>{{ employee.employeeType }}</td>
+                <td>{{ employee.salary }}</td>
             </tr>
         </tbody>
     </table>

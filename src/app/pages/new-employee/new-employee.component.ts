@@ -15,16 +15,17 @@ export class NewEmployeeComponent {
     email: '',
     phone: '',
     gender: '',
-    dateOfJoining: new Date(),
-    departmentId: 0,
-    designationId: 0,
+    dateOfJoining: '',
+    departmentId: '',
+    designationId: '',
     employeeType: '',
-    salary: 0,
+    salary: '',
   };
 
   submitForm(form: any) {
     if(form.valid) {
-      console.log(this.newEmployee);  
+      console.log(this.newEmployee); 
+      form.resetForm();
     }
   }
 }

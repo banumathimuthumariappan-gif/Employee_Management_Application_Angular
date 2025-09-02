@@ -5,8 +5,8 @@ export class Employee {
   "phone": string;
   "gender": string;
   "dateOfJoining": Date;
-  "departmentId": number;
-  "designationId": number;
+  "departmentName": number;
+  "designationName": string;
   "employeeType": string;
   "salary": number;
 
@@ -17,8 +17,8 @@ export class Employee {
     this.phone = "";
     this.gender = "";
     this.dateOfJoining = new Date();
-    this.departmentId = 0;
-    this.designationId = 0;
+    this.departmentName = 0;
+    this.designationName = '';
     this.employeeType = "";
     this.salary = 0;
   }

@@ -1,5 +1,9 @@
 <div class="new-employee-container">
-  <form id="employee-form" #employeeForm="ngForm" (ngSubmit)="submitForm(employeeForm)">
+  <form
+    id="employee-form"
+    #employeeForm="ngForm"
+    (ngSubmit)="submitForm(employeeForm)"
+  >
     <div class="form-group row">
       <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
       <div class="col-sm-10">
@@ -14,7 +18,9 @@
           #fullName="ngModel"
           minlength="3"
         />
-        <div class="error-message" *ngIf="fullName.touched && fullName.invalid">FullName is required (Minimum 3 characters)</div>
+        <div class="error-message" *ngIf="fullName.touched && fullName.invalid">
+          FullName is required (Minimum 3 characters)
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -30,7 +36,9 @@
           [(ngModel)]="newEmployee.email"
           #email="ngModel"
         />
-        <div *ngIf="email.touched && email.invalid" class="error-message">Valid Email Id is required</div>
+        <div *ngIf="email.touched && email.invalid" class="error-message">
+          Valid Email Id is required
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -42,11 +50,14 @@
           id="phone"
           class="form-control"
           required
+          pattern="^[0-9]{10}$"
           placeholder="+(91)9999999999"
           [(ngModel)]="newEmployee.phone"
           #phone="ngModel"
         />
-        <div></div>
+        <div *ngIf="phone.touched && phone.invalid" class="error-message">
+          Enter 10 digit valid phone number
+        </div>
       </div>
     </div>
     <fieldset class="form-group">
@@ -82,11 +93,14 @@
             </div>
           </div>
         </div>
+        <div *ngIf="gender.touched && gender.invalid" class="error-message">
+          Please select gender
+        </div>
       </div>
     </fieldset>
     <div class="form-group row">
       <label for="departmentId" class="col-sm-2 col-form-label"
-        >DepartmentID</label
+        >Department ID</label
       >
       <div class="col-sm-10">
         <select
@@ -97,14 +111,22 @@
           [(ngModel)]="newEmployee.departmentId"
           #departmentId="ngModel"
         >
-          <option value="">---SELECT DEPARTMENT ID ---</option>
+          <option value="" disabled selected>
+            ---SELECT DEPARTMENT ID ---
+          </option>
           <option value="1">Dept ID 1</option>
         </select>
+        <div
+          *ngIf="departmentId.touched && departmentId.invalid"
+          class="error-message"
+        >
+          Please select Department
+        </div>
       </div>
     </div>
     <div class="form-group row">
       <label for="designationId" class="col-sm-2 col-form-label"
-        >DesignationID</label
+        >Designation ID</label
       >
       <div class="col-sm-10">
         <select
@@ -115,9 +137,17 @@
           [(ngModel)]="newEmployee.designationId"
           #designationId="ngModel"
         >
-          <option value="">--- SELECT DESIGNATION ID ---</option>
+          <option value="" disabled selected>
+            --- SELECT DESIGNATION ID ---
+          </option>
           <option value="1">Desig id 1</option>
         </select>
+        <div
+          *ngIf="designationId.touched && designationId.invalid"
+          class="error-message"
+        >
+          Please select Designation ID
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -133,12 +163,39 @@
           [(ngModel)]="newEmployee.employeeType"
           #employeeType="ngModel"
         >
-          <option value="">--- SELECT EMPLOYEE TYPE ---</option>
+          <option value="" disabled selected>
+            --- SELECT EMPLOYEE TYPE ---
+          </option>
           <option value="full-time">Full Time</option>
           <option value="part-time">Part Time</option>
           <option value="contract">Contract</option>
           <option value="intern">Intern</option>
         </select>
+        <div *ngIf="employeeType.touched && employeeType.invalid">
+          Please select Employee type
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="joiningDate" class="col-sm-2 form-check-label"
+        >Date of Joining</label
+      >
+      <div class="col-sm-10">
+        <input
+          class="form-control"
+          type="date"
+          name="dateOfJoining"
+          id="dateOfJoining"
+          required
+          [(ngModel)]="newEmployee.dateOfJoining"
+          #dateOfJoining="ngModel"
+        />
+        <div
+          class="error-message"
+          *ngIf="dateOfJoining.touched && dateOfJoining.invalid"
+        >
+          Please select Date of joining
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -154,10 +211,15 @@
           [(ngModel)]="newEmployee.salary"
           #salary="ngModel"
         />
+        <div *ngIf="salary.touched && salary.invalid" class="error-message">
+          Please enter salary
+        </div>
       </div>
     </div>
     <div class="form-actions">
-        <button class="btn btn-success">Add Employee</button>
+      <button class="btn btn-success" [disabled]="employeeForm.invalid">
+        Add Employee
+      </button>
     </div>
   </form>
 </div>
