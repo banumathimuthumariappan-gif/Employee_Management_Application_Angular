@@ -1,0 +1,11 @@
+.new-employee-container {
+    margin: 1.5rem 0;
+}
+
+.form-control {
+    margin: 0.25rem;
+}
+
+.error-message {
+    color: red;
+}

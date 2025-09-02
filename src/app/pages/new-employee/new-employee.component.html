@@ -1,0 +1,163 @@
+<div class="new-employee-container">
+  <form id="employee-form" #employeeForm="ngForm" (ngSubmit)="submitForm(employeeForm)">
+    <div class="form-group row">
+      <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
+      <div class="col-sm-10">
+        <input
+          class="form-control"
+          type="text"
+          name="fullName"
+          id="fullName"
+          required
+          placeholder="Enter FullName"
+          [(ngModel)]="newEmployee.fullName"
+          #fullName="ngModel"
+          minlength="3"
+        />
+        <div class="error-message" *ngIf="fullName.touched && fullName.invalid">FullName is required (Minimum 3 characters)</div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          required
+          placeholder="Enter Email ID"
+          [(ngModel)]="newEmployee.email"
+          #email="ngModel"
+        />
+        <div *ngIf="email.touched && email.invalid" class="error-message">Valid Email Id is required</div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="phone" class="col-sm-2 col-form-label">Contact Number</label>
+      <div class="col-sm-10">
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          class="form-control"
+          required
+          placeholder="+(91)9999999999"
+          [(ngModel)]="newEmployee.phone"
+          #phone="ngModel"
+        />
+        <div></div>
+      </div>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2">Gender</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="male"
+              value="male"
+              required
+              [(ngModel)]="newEmployee.gender"
+              #gender="ngModel"
+            />
+            <label class="form-check-label" for="male"> Male </label>
+          </div>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="female"
+                required
+                [(ngModel)]="newEmployee.gender"
+                #gender="ngModel"
+              />
+              <label class="form-check-label" for="female"> Female </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group row">
+      <label for="departmentId" class="col-sm-2 col-form-label"
+        >DepartmentID</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="departmentId"
+          id="departmentId"
+          required
+          class="form-control"
+          [(ngModel)]="newEmployee.departmentId"
+          #departmentId="ngModel"
+        >
+          <option value="">---SELECT DEPARTMENT ID ---</option>
+          <option value="1">Dept ID 1</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="designationId" class="col-sm-2 col-form-label"
+        >DesignationID</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="designationId"
+          id="designationId"
+          required
+          class="form-control"
+          [(ngModel)]="newEmployee.designationId"
+          #designationId="ngModel"
+        >
+          <option value="">--- SELECT DESIGNATION ID ---</option>
+          <option value="1">Desig id 1</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="employeeType" class="col-sm-2 form-check-label"
+        >Employee Type</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="employeeType"
+          id="employeeType"
+          required
+          class="form-control"
+          [(ngModel)]="newEmployee.employeeType"
+          #employeeType="ngModel"
+        >
+          <option value="">--- SELECT EMPLOYEE TYPE ---</option>
+          <option value="full-time">Full Time</option>
+          <option value="part-time">Part Time</option>
+          <option value="contract">Contract</option>
+          <option value="intern">Intern</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="salary" class="col-sm-2 form-check-label">Salary</label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          name="salary"
+          id="salary"
+          required
+          placeholder="Enter Salary"
+          class="form-control"
+          [(ngModel)]="newEmployee.salary"
+          #salary="ngModel"
+        />
+      </div>
+    </div>
+    <div class="form-actions">
+        <button class="btn btn-success">Add Employee</button>
+    </div>
+  </form>
+</div>
