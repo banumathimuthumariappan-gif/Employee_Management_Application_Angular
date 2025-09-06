@@ -2,4 +2,6 @@
     margin: 1.5rem 0;
 }
 
-
+.table-hover tbody tr:hover td {
+  background-color:azure;    
+}

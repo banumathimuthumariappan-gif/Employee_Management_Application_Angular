@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../model/employee';
-import { NgForOf, NgIf } from '@angular/common';
+import { DatePipe, NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-display-employees',
-  imports: [NgIf, NgForOf],
+  imports: [NgForOf, DatePipe],
   templateUrl: './display-employees.component.html',
   styleUrl: './display-employees.component.css'
 })
@@ -23,11 +23,9 @@ export class DisplayEmployeesComponent implements OnInit{
       next: (resData) => {
         this.allEmployees = resData;
         console.log(this.allEmployees);
-        
       }, 
       error: (error) => {
         console.log("Error in fetching employee data");
-        
       }
     });
   }

@@ -1,5 +1,5 @@
 <div class="table-container">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Employee ID</th>
@@ -12,6 +12,7 @@
                 <th>Designation</th>
                 <th>Employee Type</th>
                 <th>Salary</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,11 +22,12 @@
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.phone }}</td>
                 <td>{{ employee.gender }}</td>
-                <td>{{ employee.dateOfJoining }}</td>
+                <td>{{ employee.dateOfJoining | date }}</td>
                 <td>{{ employee.departmentName }}</td>
                 <td>{{ employee.designationName }}</td>
                 <td>{{ employee.employeeType }}</td>
                 <td>{{ employee.salary }}</td>
+                <td><button class="btn btn-primary">Edit</button><button class="btn btn-info">Delete</button></td>
             </tr>
         </tbody>
     </table>

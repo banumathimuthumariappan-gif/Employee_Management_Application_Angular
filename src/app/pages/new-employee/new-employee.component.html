@@ -166,10 +166,16 @@
           <option value="" disabled selected>
             --- SELECT EMPLOYEE TYPE ---
           </option>
-          <option value="full-time">Full Time</option>
+          <option
+            *ngFor="let employeeType of employeeTypes"
+            value="{{ employeeType.id }}"
+          >
+            {{ employeeType.name }}
+          </option>
+          <!-- <option value="full-time">Full Time</option>
           <option value="part-time">Part Time</option>
           <option value="contract">Contract</option>
-          <option value="intern">Intern</option>
+          <option value="intern">Intern</option> -->
         </select>
         <div *ngIf="employeeType.touched && employeeType.invalid">
           Please select Employee type
@@ -210,9 +216,10 @@
           class="form-control"
           [(ngModel)]="newEmployee.salary"
           #salary="ngModel"
+          min="1"
         />
         <div *ngIf="salary.touched && salary.invalid" class="error-message">
-          Please enter salary
+          Salary should be greater than 0
         </div>
       </div>
     </div>

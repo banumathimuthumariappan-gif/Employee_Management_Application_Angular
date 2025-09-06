@@ -10,9 +10,21 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   employees = [];
-  private getEmployeeUrl = 'https://api.freeprojectapi.com/api/EmployeeApp/GetEmployees';
+  private employeeUrl = 'https://api.freeprojectapi.com/api/EmployeeApp/';
 
   getAllEmployees() {
-    return this.http.get<Employee>(this.getEmployeeUrl);
+    return this.http.get<Employee>(this.employeeUrl + 'GetEmployees');
+  }
+
+  createEmployee(newEmployeeData: Employee) {
+    
+  }
+
+  updateEmployee() {
+
+  }
+
+  deleteEmployee() {
+
   }
 }
